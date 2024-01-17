@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tabelstyle.css" />
+    <title>Comeback Growtopia</title>
+  </head>
+  <body>
+    <h2>Comeback Growtopia</h2>
+    <button onclick="addRow()">Tambah Baris</button>
+    <button onclick="deleteRow()">Hapus Baris</button>
+    <button onclick="saveTableDataToLocalStorage()">Save</button>
+
+    <br /><br />
+    <table id="myTable">
+      <tr>
+        <th>Nama Barang</th>
+        <th>Jumlah Barang</th>
+        <th>Harga Barang</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="Nama Barang" /></td>
+        <td>
+          <input
+            type="number"
+            placeholder="Jumlah Barang"
+            oninput="validateInput(this)"
+            min="0"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            placeholder="Harga Barang"
+            oninput="validateInput(this)"
+            min="0"
+          />
+        </td>
+        <td><input type="text" placeholder="Total" disabled /></td>
+      </tr>
+    </table>
+
+    <div id="totalSection">
+      <p>Total: <span id="totalAmount">0</span></p>
+      <p>WL: <span id="roundedTotal">0</span></p>
+      <p>DL: <span id="finalTotal">0</span></p>
+      <hr />
+      <label class="warnawhite" for="lastUpdate">Tanggal Terakhir diupdate:</label>
+      <input class="warnawhite" type="date" id="lastUpdate" />
+      <label class="warnawhite" for="hargaDL">Harga DL:</label>
+      <input class="warnawhite" type="number" id="hargaDL" oninput="updateGrandTotal()" />
+    </div>
+
+    <table class="info-table">
+      <tr>
+        <th class="hasil">Total DL x Harga DL:</th>
+        <td><span>Rp</span><span id="totalDLAmount">0</span></td>
+      </tr>
+    </table>
+
+    <script src="tablescript.js"></script>
+  </body>
+</html>
